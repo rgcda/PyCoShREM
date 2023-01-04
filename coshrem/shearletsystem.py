@@ -260,11 +260,11 @@ class RidgeSystem(ShearletSystem):
 
         offset = int(offset * self.scales_per_octave)
 
-        ridgeness = np.zeros_like(x, dtype=np.float)
-        widths = np.zeros_like(x, dtype=np.float)
-        heights = np.zeros_like(x, dtype=np.float)
+        ridgeness = np.zeros_like(x, dtype=float)
+        widths = np.zeros_like(x, dtype=float)
+        heights = np.zeros_like(x, dtype=float)
 
-        orientations = np.zeros_like(x, dtype=np.float)
+        orientations = np.zeros_like(x, dtype=float)
 
         ci = np.abs(np.imag(transformed[:, :, :, :(-offset)]))
         cr = np.real(transformed[:, :, :, offset:])
@@ -537,8 +537,8 @@ class EdgeSystem(ShearletSystem):
         transformed = self._full_circle_coeffs(self._transform(x))
         offset = int(offset * self.scales_per_octave);
 
-        edgeness = np.zeros_like(x, dtype=np.float)
-        orientations = np.zeros_like(x, dtype=np.float)
+        edgeness = np.zeros_like(x, dtype=float)
+        orientations = np.zeros_like(x, dtype=float)
 
         ci = np.imag(transformed[:, :, :, offset:])
         cr = np.abs(np.real(transformed[:, :, :, :(transformed.shape[3] - offset)]))
